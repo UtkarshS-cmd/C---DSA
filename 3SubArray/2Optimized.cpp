@@ -7,6 +7,7 @@ using namespace std;
 
 int maxSubarrayOptimized(const vector<int>& arr) {
     int best = arr[0], current = arr[0];
+    
     for (int i = 1; i < (int)arr.size(); ++i) {
         current = max(arr[i], current + arr[i]);
         best = max(best, current);

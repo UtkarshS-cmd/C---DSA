@@ -5,14 +5,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int maxAreaOptimized(const vector<int>& h) {
-    int l = 0, r = (int)h.size() - 1, best = 0;
-    while (l < r) {
+int maxAreaOptimized(const vector<int> &h)
+{
+    int l = 0, r = h.size() - 1, best = 0;
+    while (l < r)
+    {
         best = max(best, min(h[l], h[r]) * (r - l));
-        if (h[l] <= h[r]) ++l; else --r;
+        if (h[l] <= h[r])
+            ++l;
+        else
+            --r;
     }
     return best;
 }
 
-int main() { vector<int> h = {1, 8, 6, 2, 5, 4, 8, 3, 7}; cout << maxAreaOptimized(h) << "\n"; return 0; }
-
+int main()
+{
+    vector<int> h = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+    cout << maxAreaOptimized(h) << "\n";
+    return 0;
+}

@@ -6,9 +6,9 @@ using namespace std;
 int maxAreaBrute(const vector<int> &height)
 {
     int best = 0;
-    for (int i = 0; i < (int)height.size(); ++i)
+    for (int i = 0; i < height.size(); ++i)
     {
-        for (int j = i + 1; j < (int)height.size(); ++j)
+        for (int j = i + 1; j < height.size(); ++j)
         {
             best = max(best, min(height[i], height[j]) * (j - i));
         }
