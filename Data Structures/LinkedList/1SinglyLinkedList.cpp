@@ -176,13 +176,139 @@ public:
         return cnt;
     }
 
-    int second_largestt(){
-       
+    int secondLargest(){
+       int maxEle = INT_MIN;
+       int secondMax = INT_MIN;
+        Node* temp = head;
+        
+        while(temp != NULL){
+        if (temp->data > maxEle) {
+            secondMax = maxEle;
+            maxEle = temp->data;
+        } else if (temp->data > secondMax && temp->data != maxEle) {
+            secondMax = temp->data;
+        }
+        temp = temp->next;
+    }
     }
 
-    int second_smallest(){
+    int secondSmallest() {
+        int minEle = INT_MAX;
+        int secondMin = INT_MAX;
+        Node* temp = head;
+        
+        while(temp != NULL){
+        if (temp->data < minEle){
+            secondMin = minEle;
+            minEle = temp->data;
+        } else if (temp->data < secondMin && temp->data != minEle) {
+            secondMin = temp->data;
+        }
+        temp = temp->next;
+}
 
+    int countOccurence(int val){
+        int cnt = 0;
+
+        while (temp != nullptr) {
+            if(temp->data == val){
+            cnt++;
+            }
+          temp = temp->next;
+        }
+    return cnt;
+}
+
+string countOccurence(int val){
+        int cnt = 0;
+
+        while (temp != nullptr) {
+            if(temp->data == val){
+                return "Element Exists"
+            }
+          temp = temp->next;
+        }
+    return "Element Does not exist";
+}
+
+// First occurence and last occurence pe indexing
+   int firstOccurence(int val){
+        int cnt = 0;
+
+        while (temp != nullptr) {
+            if(temp->data == val){
+            cnt++;
+            }
+          temp = temp->next;
+        }
+    return cnt;
+} 
+
+    int lastOccurence(int val){
+        int cnt = 0;
+
+        while (temp != nullptr) {
+            if(temp->data == val){
+            cnt++;
+            }
+          temp = temp->next;
+        }
+    return cnt;
+}
+
+int greaterThan(int val){
+    int cnt = 0;
+
+    while (temp != nullptr) {
+            if(temp->data > val){
+                cnt++;
+            }
+          temp = temp->next;
+        }
+    return cnt;
+}
+
+int lessThanAvgVal(int val){
+    int cnt = 0;
+
+     Node* temp = head;
+        int count = 0;
+        int sum = 0;
+        while (temp != NULL) {
+            sum += temp->data;
+            count++;
+            temp = temp->next;
+        }
+        avg = (float)sum/count;
+
+    while (temp != nullptr) {
+            if(temp->data < avg ){
+                cnt++;
+            }
+          temp = temp->next;
+        }
+    return cnt;
+}
+
+Node *reverseList(Node *head) {
+
+    Node *curr = head, *prev = nullptr, *next;
+
+    while (curr != nullptr) {
+
+        // Store next
+        next = curr->next;
+
+        // Reverse current node's next pointer
+        curr->next = prev;
+
+        // Move pointers one position ahead
+        prev = curr;
+        curr = next;
     }
+
+    return prev;
+}
 };
 
 int main() {
