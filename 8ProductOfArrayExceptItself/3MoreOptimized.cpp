@@ -1,35 +1,26 @@
-// Product of Array Except Itself
-// Approach: Use prefix and suffix products.
-// Beginner-friendly implementation for DSA practice.
-
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
-vector<int> productExceptSelfMoreOptimized(vector<int> nums)
-{
-    int n = (int)nums.size();
-    vector<int> ans(n, 1);
-    int prefix = 1;
-    for (int i = 0; i < n; ++i)
-    {
-        ans[i] *= prefix;
-        prefix *= nums[i];
-    }
-    int suffix = 1;
-    for (int i = n - 1; i >= 0; --i)
-    {
-        ans[i] *= suffix;
-        suffix *= nums[i];
-    }
-    return ans;
-}
+// 3->Optimized space complexity
+int main() {
+    int a[] = {1, 2, 3, 4};
+    int n = 4;
+    int ans[n], suffix = 1;
 
-int main()
-{
-    vector<int> nums = {1, 2, 3, 4};
-    auto ans = productExceptSelfMoreOptimized(nums);
-    for (int x : ans)
-        cout << x << ' ';
-    cout << "\n";
-    return 0;
+    // Step 1: Prefix products stored in ans
+    ans[0] = 1;
+    for (int i = 1; i < n; i++) {
+        ans[i] = ans[i - 1] * a[i - 1];
+    }
+
+    // Step 2: Multiply by suffix products on the fly
+    for (int i = n - 1; i >= 0; i--) {
+        ans[i] *= suffix;
+        suffix *= a[i];
+    }
+
+    // Step 3: Print result
+    for (int i = 0; i < n; i++) {
+        cout << ans[i] << " ";
+    }
 }
