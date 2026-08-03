@@ -9,5 +9,10 @@ void sortColorsBrute(vector<int>& nums) {
     sort(nums.begin(), nums.end());
 }
 
-int main() { vector<int> nums = {2, 0, 2, 1, 1, 0}; sortColorsBrute(nums); for (int x : nums) cout << x << ' '; cout << "\n"; return 0; }
+int main() { 
+    vector<int> nums = {2, 0, 2, 1, 1, 0}; 
+    sortColorsBrute(nums); 
+    for (int x : nums) 
+        cout << x << ' '; 
+        cout << "\n"; return 0; }
 
